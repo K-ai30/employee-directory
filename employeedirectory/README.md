@@ -12,9 +12,11 @@ SO THAT I have quick access to their information<br>
 
 ### Installation
 
-Clone to your local machine and open in your favorite code editor to check it out!
+Clone to your local machine and open in your favorite code editor to check it out! Or, visit the deployed version at:
 
 ### Link
+
+https://k-ai30.github.io/employee-directory/
 
 ### Technologies Utilized:
 
@@ -24,6 +26,7 @@ Clone to your local machine and open in your favorite code editor to check it ou
 * React
 
 ### Demo
+
 
 
 ### Notes
