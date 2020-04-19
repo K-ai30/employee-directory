@@ -1,8 +1,17 @@
-div, .heading {
-    background-color: navy;
+.heading { 
+    background-color: rgb(6, 6, 61);
+    border-bottom: 5px solid rgb(177, 10, 10);
 }
 
 h1 {
-    color: black;
-    margin-top: 20px;
+    text-align: center;
+    padding: 30px;
+    color: #ffffff;
+}
+
+h6 {
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    color: #ffffff;
 }
