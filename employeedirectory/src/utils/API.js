@@ -1,13 +1,9 @@
 import axios from "axios";
+const EMPURL = "https://randomuser.me/api/?results=50&nat=us";
 
-// Export an object containing methods we'll use for accessing the GitHub Jobs API
-
+// Export an object containing methods we'll use for accessing the Random User API
 export default {
-  searchTerms: function(query) {
-    return axios.get(
-      "https://en.wikipedia.org/w/api.php?action=opensearch&search=" +
-        query +
-        "&limit=1&format=json&origin=*"
-    );
-  }
+  searchTerms: function() {
+    return axios.get(EMPURL);
+  },
 };

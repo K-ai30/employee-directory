@@ -4,7 +4,10 @@ import './App.css';
 // import { BrowserRouter as Router, Route } from "react-router-dom";
 import Jumbotron from './components/Jumbotron/jumbotron';
 import Searchbar from './components/SearchBar/searchbar';
-import Form from './components/Form/index';
+import Table from './components/Table/index';
+
+// import EmpAPIContainer from "./components/EmpAPIContainer";
+// return <EmpAPIContainer />;
 
 function App() {
   return (
@@ -12,9 +15,7 @@ function App() {
       <Jumbotron />
       <div>
         <Searchbar />
-      </div>
-      <div>
-        <Form />
+        <Table />
       </div>
     </div>
   );
