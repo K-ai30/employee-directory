@@ -1,11 +1,16 @@
 import React, { Component } from "react";
 import "./style.css";
+import moment from 'moment';
+import API from "../../utils/API";
 
-export default class Table extends Component {
-    render() {
-        return (
+export default function Table (props) {
+    //1. create a button next to our th for Name that will sort when clicked
+    //2. pass that button a click handler that we define in App.js (pass it the same way we pass employeeList, aka props)
+    //3. Define a click handler in app.js that will sort this.state.employeeList alphabetically by last name (or first name, dealer's choice)
+    //      --look at MDN's Array.prototype.sort() documentation for how to sort an array of objects by a specific property in each object
+    return (
             <div className="col-md-11 mx-auto">
-                <table class="table table-striped">
+                <table className="table table-striped">
                     <thead>
                         <tr>
                         <th scope="col">Image</th>
@@ -16,52 +21,18 @@ export default class Table extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                        <th scope="row"></th>
-                        <td>Mark Taylor</td>
-                        <td>(407)-330-1010</td>
-                        <td>email@email.com</td>
-                        <td>5/10/1960</td>
-                        </tr>
-                        <tr>
-                        <th scope="row"></th>
-                        <td>Jacob Frank</td>
-                        <td>(407)-330-1010</td>
-                        <td>email@email.com</td>
-                        <td>5/10/1960</td>
-                        </tr>
-                        <tr>
-                        <th scope="row"></th>
-                        <td>Larry James</td>
-                        <td>(407)-330-1010</td>
-                        <td>email@email.com</td>
-                        <td>5/10/1960</td>
-                        </tr>
+                        {props.employeeList.map((employee, index) => (
+                            <tr key={index}>
+                                {/* <th scope="row"></th> */}
+                                <td><img src={ employee.picture.thumbnail } alt="photo id"/></td>
+                                <td>{ employee.name.first } { employee.name.last }</td>
+                                <td>{ employee.phone }</td>
+                                <td>{ employee.email }</td>
+                                <td>{ moment(employee.dob.date).format("MM/DD/YYYY") }</td>
+                            </tr>
+                        ))}
                     </tbody>
                     </table>
             </div>
         )
-    }
 }
-
-
-
-    // Setting the component's initial state
-    // state = {
-    //   Image: "",
-    //   Name: "",
-    //   Phone: "",
-    //   Email: "",
-    //   DOB: ""
-    // };
-  
-    // handleInputChange = event => {
-    //   // Getting the value and name of the input which triggered the change
-    //   const { name, value } = event.target;
-  
-      
-    //   // Updating the input's state
-    //   this.setState({
-    //     [name]: value
-    //   });
-    // };
