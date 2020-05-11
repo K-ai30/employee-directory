@@ -35,4 +35,3 @@ export default function Table (props) {
                     </table>
             </div>
         )
-}
