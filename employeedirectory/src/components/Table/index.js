@@ -14,10 +14,10 @@ export default function Table (props) {
                     <thead>
                         <tr>
                         <th scope="col">Image</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Phone</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">DOB</th>
+                        <th scope="col">Name<i class="fas fa-sort-down"></i></th>
+                        <th scope="col">Phone<i class="fas fa-sort-down"></i></th>
+                        <th scope="col">Email<i class="fas fa-sort-down"></i></th>
+                        <th scope="col">DOB<i class="fas fa-sort-down"></i></th>
                         </tr>
                     </thead>
                     <tbody>
