@@ -8,7 +8,9 @@ export default class App extends React.Component {
   
   state = { 
     employeeList: [],
-    searchTerm: ""
+    searchTerm: "",
+    // results: [],
+    alphaNumericOrder: true
   }
 
   componentDidMount() {
@@ -41,10 +43,59 @@ export default class App extends React.Component {
       }
   };
 
-  // handleFormSubmit = event => {
-  //     event.preventDefault();
+  handleSort = (sortBy) => {
+		console.log(sortBy);
+		const { employeeList, alphaNumericOrder } = this.state;
+		let sortedEmployees;
+		if (sortBy === 'name') {
+			if (alphaNumericOrder === true) {
+				sortedEmployees = employeeList.sort((a, b) => {
+					if (a.name.first < b.name.first) {
+						return -1;
+          }
+					if (a.name.first > b.name.first) {
+						return 1;
+					}
+					return 0;
+				});
+			} else {
+				sortedEmployees = employeeList.sort((a, b) => {
+					if (a.name.first > b.name.first) {
+						return -1;
+					}
+					if (a.name.first < b.name.first) {
+						return 1;
+					}
+					return 0;
+				});
+			}
+		} else if (sortBy === 'email') {
+			if (alphaNumericOrder === true) {
+				sortedEmployees = employeeList.sort((a, b) => {
+					if (a.email < b.email) {
+						return -1;
+					}
+					if (a.email > b.email) {
+						return 1;
+					}
+					return 0;
+				});
+			} else {
+				sortedEmployees = employeeList.sort((a, b) => {
+					if (a.email > b.email) {
+						return -1;
+					}
+					if (a.email < b.email) {
+						return 1;
+					}
+					return 0;
+				});
+			}
+		}
+		this.setState({ employeeList: employeeList, alphaNumericOrder: !alphaNumericOrder });
+		console.log(sortedEmployees);
 
-  // };
+  };
 
   render() {
     console.log('Results: ', this.state);
@@ -56,7 +107,8 @@ export default class App extends React.Component {
           searchTerm={this.state.searchTerm} 
           handleInputChange={this.handleInputChange}
         />
-        <Table employeeList={this.state.employeeList}/>
+        <Table employeeList={this.state.employeeList}
+        handleSort={this.handleSort}/>
       </div>
       </div>
     );
